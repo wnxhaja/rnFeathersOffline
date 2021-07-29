@@ -12,7 +12,7 @@ app.use('/messages', localstorage({storage: AsyncStorage}));
 
 const messages = app.service('messages');
 
-owndataWrapper(app, '/messages');
+owndataWrapper(app, '/messages', {storage: AsyncStorage});
 
 messages.on('created', function (message) {
   console.log('Someone created a message', message);
