@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import feathers from '@feathersjs/feathers';
 import localstorage from 'feathers-localstorage';
-import {ownnetWrapper} from '@feathersjs-offline/client';
+import {owndataWrapper} from '@feathersjs-offline/client';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -12,7 +12,7 @@ app.use('/messages', localstorage({storage: AsyncStorage}));
 
 const messages = app.service('messages');
 
-ownnetWrapper(app, '/messages');
+owndataWrapper(app, '/messages');
 
 messages.on('created', function (message) {
   console.log('Someone created a message', message);
